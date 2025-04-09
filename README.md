@@ -21,19 +21,20 @@
     </style>
 </head>
 <body>
-<table id="gradebook">
-    <thead>
-        <tr>
-            <th>Student Name</th>
-            <th>Assignment 1</th>
-            <th>Assignment 2</th>
-            <th>Assignment 3</th>
-        </tr>
-    </thead>
-    <tbody>
-       <!-- Rows will be populated dynamically with JavaScript -->
-    </tbody>
-</table>
+    <h1>Gradebook</h1>
+    <table id="gradebook">
+        <caption>Student Grades</caption>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Assignment 1</th>
+                <th>Assignment 2</th>
+                <th>Assignment 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be populated dynamically with JavaScript -->
+        </tbody>
     </table>
     <script src="gradebook.js"></script>
 </body>
