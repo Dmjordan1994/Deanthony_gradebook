@@ -5,7 +5,7 @@ function fetchGradeData() {
 // Create a new request for HTTP data
 let xhr = new XMLHttpRequest();
 // This is the address on the machine we're asking for data
-let apiRoute = "/api/grades';
+let apiRoute = "/api/grades";
 // When the request change status, we run this anonymous function
 xhr.onreadystatechange = function(){
     let results;
@@ -13,13 +13,12 @@ xhr.onreadystatechange = function(){
     if(xhr.readyState === xhr.DONE){
         // Check if we're successful
         if(xhr.status !== 200){
-            console.error('Could not get grades.
-                          Status ${xhr.status}');
+            console.error('Could not get grades. Status ${xhr.status}');
         }
         // And then call the function to update the HTML with our data
-        populateGradebook(JSON parse(xhr.responseText));
+        populateGradebook(JSON.parse(xhr.responseText));
         }
-    }.bind(this);
+    }
     xhr.open("get", apiRoute, true);
     xhr.send();
 }
@@ -30,7 +29,7 @@ function populateGradebook(data) {
     let tableElm = document.getElementById("gradebook"); // Get the gradebook table element
         data.forEach(function(assignment){ // For each row of data we're passed in
             let row = document.createElement("tr"); // create a table row element
-            let columns = []; // Handy place to stick the columns of information
+            let columns = {}; // Handy place to stick the columns of information
             columns.name = document.createElement('td'); // The first column's table data will be the name
             columns.name.appendChild(
                 // Concatenate the full name:  "last_name, first_name"
